@@ -1,0 +1,28 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "coverUrl": "./public/covers/danIt.png",
+            "name": "Tôi dân IT",
+            "artist": "BaoDai"
+        },
+        {
+            "id": 2,
+            "coverUrl": "./public/covers/whiteValentine.png",
+            "name": "White valetine",
+            "artist": "BaoDai"
+        },
+        {
+            "id": 3,
+            "coverUrl": "./public/covers/AILoveSong.png",
+            "name": "AI love song",
+            "artist": "BaoDai"
+        },
+        {
+            "id": 4,
+            "coverUrl": "./public/covers/introvert.png",
+            "name": "Hướng nội",
+            "artist": "BaoDai"
+        }  
+    ]
+}

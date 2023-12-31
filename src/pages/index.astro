@@ -2,8 +2,8 @@
 import Card from '../components/Card.astro'
 import Layout from '../layouts/Layout.astro'
 
-const response = await fetch('https://music-api.charca.workers.dev/albums')
-const albums = await response.json()
+const response = await import('../data/response.json')
+const albums = response;
 ---
 
 <Layout title="Astro Records">
@@ -11,22 +11,128 @@ const albums = await response.json()
     <div
       class="container mx-auto max-w-screen-lg px-6 lg:px-0 flex items-center flex-wrap pt-4 pb-12"
     >
-      <h1 class="font-bold text-3xl text-black tracking-tight mb-12">
+      <!-- <h1 class="font-bold text-3xl text-black tracking-tight mb-12">
         Recently Played <span class="sr-only">Albums</span>
-      </h1>
+      </h1> -->
 
-      <div class="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+      <ul class="cards" tabindex="0">
         {
-          albums.results.map((album) => (
+          albums.data.map((album) => (
+          <li>
             <Card
-              id={album.idAlbum}
-              name={album.strAlbum}
-              artist={album.strArtist}
-              image_url={album.strAlbumThumb}
+              id={album.id}
+              name={album.name}
+              artist={album.artist}
+              image_url={album.coverUrl}
             />
+          </li>
           ))
         }
-      </div>
+      </ul>
     </div>
   </section>
 </Layout>
+
+<script>
+const slider = document.querySelector(".cards");
+let isDown = false;
+let startX;
+let scrollLeft;
+
+slider.addEventListener("pointerdown", (e) => {
+	isDown = true;
+	slider.classList.add("active");
+	startX = e.pageX - slider.offsetLeft;
+	scrollLeft = slider.scrollLeft;
+});
+slider.addEventListener("pointerleave", () => {
+	isDown = false;
+	slider.classList.remove("active");
+});
+slider.addEventListener("pointerup", () => {
+	isDown = false;
+	slider.classList.remove("active");
+});
+slider.addEventListener("pointermove", (e) => {
+	if (!isDown) return;
+	e.preventDefault();
+	const x = e.pageX - slider.offsetLeft;
+	const walk = (x - startX) * 3; //scroll-fast
+	slider.scrollLeft = scrollLeft - walk;
+});
+</script>
+
+<style>
+
+	/* Animation bumps up the z-index, to make sure it’s on top */
+	@keyframes adjust-z-index {
+		0% {
+			z-index: 1;
+		}
+		50% {
+			z-index: 100; /* When at the center, be on top */
+		}
+		100% {
+			z-index: 1;
+		}
+	}
+
+	.cards li {	
+		/* Track this element as it intersects the scrollport */
+		view-timeline-name: --li-in-and-out-of-view;
+		view-timeline-axis: inline;
+
+		/* Link an animation to the established view-timeline and have it run during the contain phase */
+		animation: linear adjust-z-index both;
+		animation-duration: auto;
+		animation-timeline: --li-in-and-out-of-view;
+		animation-range: contain 0% contain 100%; /* For Canary */
+
+		position: relative;
+		z-index: 1;
+		will-change: z-index;
+
+		user-select: none;
+	}
+
+	.cards {
+		list-style: none;
+		overflow-x: scroll;
+		width: 100%;
+		white-space: nowrap;
+
+		outline: 1px solid #333;
+		background: rgba(0 0 0 / 0.5);
+	}
+	
+	.cards:focus {
+		outline-color: #666;
+	}
+	
+	/* only enable snapping when not dragging round*/
+	.cards:not(.active) {
+		scroll-snap-type: x mandatory;
+	}
+
+	.cards li {
+		display: inline-block;
+		width: 15rem;
+		height: 15rem;
+		scroll-snap-align: center;
+	}
+
+	.cards {
+		min-height: calc(15rem * 2.5);
+
+		max-width: calc(15rem * 6);
+		margin: 0 auto;
+  		padding: calc(15rem / 3 * 2) 0;
+	}
+	
+	.cards li:first-of-type {
+		margin-left: calc(50% - 15rem / 2);
+	}
+	.cards li:last-of-type {
+		margin-right: calc(50% - 15rem / 2);
+	}
+</style>
