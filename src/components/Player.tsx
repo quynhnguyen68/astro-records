@@ -38,19 +38,19 @@ const PauseIcon = (
 
 // This app doesn't have real songs, it only has a few songs
 // that we will play over and over as the user uses the app.
-const MAX_SONGS = 4
+const MAX_SONGS = 5
 
 export default function Player() {
   const audioPlayer = useRef<HTMLAudioElement>(null)
   const progressRef = useRef(null)
-  const [songIndex, setSongIndex] = useState(4)
+  const [songIndex, setSongIndex] = useState(5)
   const [progress, setProgress] = useState(0)
 
   if (currentTrack.value === null) {
     return
   }
 
-  const { artist, albumName, imageUrl } = currentTrack.value
+  const { artist, albumName, imageUrl, albumId } = currentTrack.value
 
   function whilePlaying() {
     if (audioPlayer.current.duration) {
@@ -62,7 +62,7 @@ export default function Player() {
   }
 
   useEffect(() => {
-    const newIndex = (songIndex % MAX_SONGS) + 1
+    const newIndex = parseInt(albumId, 10)
     audioPlayer.current.src = `/mp3/song${newIndex}.mp3`
     audioPlayer.current.currentTime = 0
     audioPlayer.current.play()
@@ -142,8 +142,11 @@ export default function Player() {
         <div class="flex gap-6 items-center text-black">
           <button
             type="button"
-            disabled
             class="opacity-50 focus-visible:ring-2 focus:outline-none focus:ring-black"
+            onClick={() => {
+              const newIndex = songIndex - 1 === 0 ? MAX_SONGS : songIndex - 1;
+              window.location.replace(`/${newIndex}`);
+            }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -169,8 +172,11 @@ export default function Player() {
 
           <button
             type="button"
-            disabled
             class="opacity-50 focus-visible:ring-2 focus:outline-none focus:ring-black"
+            onClick={() => {
+              const newIndex = songIndex % MAX_SONGS + 1;
+              window.location.replace(`/${newIndex}`);
+            }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
