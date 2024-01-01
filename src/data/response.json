@@ -4,25 +4,29 @@
             "id": 1,
             "coverUrl": "./public/covers/danIt.png",
             "name": "Tôi dân IT",
-            "artist": "BaoDai"
+            "artist": "Bao Dai",
+            "track": "./public/mp3/song1.mp3"
         },
         {
             "id": 2,
             "coverUrl": "./public/covers/whiteValentine.png",
             "name": "White valetine",
-            "artist": "BaoDai"
+            "artist": "Bao Dai",
+            "track": "./public/mp3/song2.mp3"
         },
         {
             "id": 3,
             "coverUrl": "./public/covers/AILoveSong.png",
             "name": "AI love song",
-            "artist": "BaoDai"
+            "artist": "Bao Dai",
+            "track": "./public/mp3/song3.mp3"
         },
         {
             "id": 4,
             "coverUrl": "./public/covers/introvert.png",
             "name": "Hướng nội",
-            "artist": "BaoDai"
+            "artist": "Bao Dai",
+            "track": "./public/mp3/song4.mp3"
         }  
     ]
 }
