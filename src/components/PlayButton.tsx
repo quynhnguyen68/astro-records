@@ -1,7 +1,7 @@
-import { currentTrack, isPlaying, type Track } from './state'
+import { currentTrack, isPlaying } from './state'
 
 type Props = {
-  track: Track
+  track: string,
   albumId: string
   albumName: string
   artist: string
@@ -20,8 +20,9 @@ export default function PlayButton({
       type="button"
       class="text-pink-700 bg-gray-100 hover:bg-gray-200 focus-visible:ring-2 focus:outline-none focus:ring-black font-medium rounded-lg text-lg px-10 py-3 text-center inline-flex items-center dark:focus:ring-black mr-4"
       onClick={() => {
+        console.log('play', track);
         currentTrack.value = {
-          ...track,
+          track,
           albumId,
           albumName,
           artist,

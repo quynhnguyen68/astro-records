@@ -45,14 +45,17 @@ slider.addEventListener("pointerdown", (e) => {
 	startX = e.pageX - slider.offsetLeft;
 	scrollLeft = slider.scrollLeft;
 });
+
 slider.addEventListener("pointerleave", () => {
 	isDown = false;
 	slider.classList.remove("active");
 });
+
 slider.addEventListener("pointerup", () => {
 	isDown = false;
 	slider.classList.remove("active");
 });
+
 slider.addEventListener("pointermove", (e) => {
 	if (!isDown) return;
 	e.preventDefault();
@@ -63,7 +66,6 @@ slider.addEventListener("pointermove", (e) => {
 </script>
 
 <style>
-
 	/* Animation bumps up the z-index, to make sure it’s on top */
 	@keyframes adjust-z-index {
 		0% {

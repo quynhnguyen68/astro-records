@@ -50,7 +50,7 @@ export default function Player() {
     return
   }
 
-  const { title, artist, albumName, imageUrl } = currentTrack.value
+  const { artist, albumName, imageUrl } = currentTrack.value
 
   function whilePlaying() {
     if (audioPlayer.current.duration) {
@@ -67,7 +67,7 @@ export default function Player() {
     audioPlayer.current.currentTime = 0
     audioPlayer.current.play()
     setSongIndex(newIndex)
-  }, [title])
+  }, [albumName])
 
   useEffect(() => {
     if (isPlaying.value) {
@@ -132,7 +132,7 @@ export default function Player() {
         />
         <div class="flex-1 min-w-0">
           <div class="text-xl text-black font-medium overflow-hidden text-ellipsis whitespace-nowrap">
-            {title}
+            {albumName}
           </div>
           <div class="text-xl text-gray-700 overflow-hidden text-ellipsis whitespace-nowrap">
             {artist}

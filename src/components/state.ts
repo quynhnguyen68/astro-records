@@ -1,15 +1,9 @@
 import { signal } from "@preact/signals";
 
-export type Track = {
-  id: string;
-  title: string;
-  position: number;
-  length: string;
-};
-
-export type PlayerTrack = Track & {
-  albumId: string;
+export type PlayerTrack = {
+  track: string;
   albumName: string;
+  albumId: string;
   artist: string;
   imageUrl: string;
 };
