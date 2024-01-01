@@ -2,38 +2,38 @@
     "data": [
         {
             "id": 1,
-            "coverUrl": "./public/covers/danIt.png",
+            "coverUrl": "/covers/danIt.png",
             "name": "Tôi dân IT",
             "artist": "Bảo Đại",
-            "track": "./public/mp3/song1.mp3"
+            "track": "git /mp3/song1.mp3"
         },
         {
             "id": 2,
-            "coverUrl": "./public/covers/whiteValentine.png",
-            "name": "White valetine",
+            "coverUrl": "/covers/whiteValentine.png",
+            "name": "White valentine",
             "artist": "Bảo Đại",
-            "track": "./public/mp3/song2.mp3"
+            "track": "/mp3/song2.mp3"
         },
         {
             "id": 3,
-            "coverUrl": "./public/covers/AILoveSong.png",
+            "coverUrl": "/covers/AILoveSong.png",
             "name": "AI love song",
             "artist": "Bảo Đại",
-            "track": "./public/mp3/song3.mp3"
+            "track": "/mp3/song3.mp3"
         },
         {
             "id": 4,
-            "coverUrl": "./public/covers/introvert.png",
+            "coverUrl": "/covers/introvert.png",
             "name": "Hướng nội",
             "artist": "Bảo Đại",
-            "track": "./public/mp3/song4.mp3"
+            "track": "/mp3/song4.mp3"
         },
         {
             "id": 5,
-            "coverUrl": "./public/covers/purify.jpg",
+            "coverUrl": "/covers/purify.jpg",
             "name": "Purify",
             "artist": "Bảo Đại",
-            "track": "./public/mp3/song5.mp3"
+            "track": "/mp3/song5.mp3"
         }   
     ]
 }
