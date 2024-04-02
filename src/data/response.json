@@ -2,37 +2,37 @@
     "data": [
         {
             "id": 1,
-            "coverUrl": "/covers/danIt.png",
-            "name": "Tôi dân IT",
-            "artist": "Bảo Đại",
-            "track": "git /mp3/song1.mp3"
+            "coverUrl": "/covers/dog-meme.webp",
+            "name": "Back to hometown",
+            "artist": "Thống da cooker",
+            "track": "/mp3/song1.mp3"
         },
         {
             "id": 2,
-            "coverUrl": "/covers/whiteValentine.png",
-            "name": "White valentine",
-            "artist": "Bảo Đại",
+            "coverUrl": "/covers/old-town-road.jpg",
+            "name": "Lấy con ngựa trở zề lối đi xưa",
+            "artist": "Thống da cooker",
             "track": "/mp3/song2.mp3"
         },
         {
             "id": 3,
-            "coverUrl": "/covers/AILoveSong.png",
-            "name": "AI love song",
-            "artist": "Bảo Đại",
+            "coverUrl": "/covers/buong-hang.jpg",
+            "name": "Buông hàng",
+            "artist": "Thống da cooker",
             "track": "/mp3/song3.mp3"
         },
         {
             "id": 4,
-            "coverUrl": "/covers/introvert.png",
-            "name": "Hướng nội",
-            "artist": "Bảo Đại",
+            "coverUrl": "/covers/giao-su.jpg",
+            "name": "Tối nay ta đi đâu?",
+            "artist": "Thống da cooker",
             "track": "/mp3/song4.mp3"
         },
         {
             "id": 5,
-            "coverUrl": "/covers/purify.jpg",
-            "name": "Purify",
-            "artist": "Bảo Đại",
+            "coverUrl": "/covers/on-hon.jpg",
+            "name": "Anh đã ổn hơn",
+            "artist": "Thống da cooker",
             "track": "/mp3/song5.mp3"
         }   
     ]
